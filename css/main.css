@@ -1,12 +1,14 @@
 body {
     margin: 60px auto;
-    width: 70%;
+    width: 60%;
+    background-color:#e0e0ff;
 }
 nav ul, footer ul {
     font-family:"serif";
     padding: 0px;
     list-style: none;
     font-weight: bold;
+    text-align: center;
 }
 nav ul li, footer ul li {
     display: inline;
@@ -22,6 +24,7 @@ a:hover {
 h1 {
     font-size: 3em;
     font-family:"serif";
+    text-align: center;
 }
 h2 {
     font-size: 1.5em;
@@ -37,7 +40,7 @@ p {
     color: #333;
 }
 footer {
-    border-top: 1px solid #d5d5d5;
+    border-top: 2px solid #d5d5d5;
     font-size: .8em;
 }
 
