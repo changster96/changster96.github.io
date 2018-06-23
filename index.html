@@ -2,29 +2,53 @@
 <html>
 	<head>
 		<title>Title</title>
-    <!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="css/main.css">
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="index.html">Home</a></li>
-        		<li><a href="about/index.html">About</a></li>
-        		<li><a href="resume/index.html">Resume</a></li>
-	        	<li><a href="projects/index.html">Projects</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Home Page</h1>
-				<p>Personal website for Kevin Chang. Use the navigation bar to find a short bio, a resume, and some projects!</p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:kc34@rice.edu">email</a></li>
-        		<li><a href="https://github.com/kc34">github.com/kc34</a></li>
-			</ul>
-		</footer>
+	<!-- link to main stylesheet -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-route.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/main.css">    </head>
+	<body ng-app="websiteApp">
+		<div ng-controller="MainController">
+			<nav>
+				<ul>
+					<li><a href="#!home">Home</a></li>
+					<li><a href="#!about">About</a></li>
+					<li><a href="#!resume">Resume</a></li>
+					<li><a href="#!projects">Projects</a></li>
+				</ul>
+			</nav>
+
+			<div ng-view class="container"></div>
+
+			<footer>
+				<ul>
+					<li><a href="mailto:kc34@rice.edu">email</a></li>
+					<li><a href="https://github.com/kc34">github.com/kc34</a></li>
+				</ul>
+			</footer>
+			</div>
+		<script>
+			angular.module("websiteApp", ['ngRoute'])
+			.controller("MainController", function($scope, $route) {
+				$scope.$route = $route;
+			})
+			.config(function($routeProvider, $locationProvider) {
+				$routeProvider
+				.when('/home', {
+					templateUrl: 'templates/home.html'
+				})
+				.when('/about', {
+					templateUrl: 'templates/about.html'
+				})
+				.when('/resume', {
+					templateUrl: 'templates/resume.html'
+				})
+				.when('/projects', {
+					templateUrl: 'templates/projects.html'
+				})
+				.otherwise({
+					templateUrl: 'templates/home.html'
+				});
+			});
+		</script>
 	</body>
 </html>

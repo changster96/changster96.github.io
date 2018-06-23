@@ -2,79 +2,29 @@
 <html>
 	<head>
 		<title>Title</title>
-    <!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="../css/main.css">
-	</head>
-	<body>
-		<nav>
-    	<ul>
-				<li><a href="../index.html">Home</a></li>
-				<li><a href="../about/index.html">About</a></li>
-				<li><a href="../resume/index.html">Resume</a></li>
-				<li><a href="index.html">Projects</a></li>
-    	</ul>
-		</nav>
-		<div class="container">
-      <div class="projects">
-				<h1>Side Projects</h1>
-				<h2>SpaceBox (collaboration)</h2>
-				<p>SpaceBox was created from a Rice Hackathon effort by Haihao Liu,
-					Osmond Wen, Kevin Guo, and me! (All current Rice students.) It's an
-				  n-body gravity simulator with scoring mechanics. Start by clicking
-					anywhere and holding the mouse down to create a star. Then click,
-					hold, and drag to throw a planet into orbit! The lower the
-				  eccentricity of an orbit you throw, the higher your score for that
-					planet! Click on the image below to play.</p>
-				<a href="http://kc34.github.io/SpaceBox">
-					<img src="img/spacebox.png">
-				</a>
-				<h2>Loch Best Monster game</h2>
-				<p>Loch Best Monster, created as a birthday present for someone special,
-				  is inspired by the Japanese bullet-hell genre of video games. Use
-				  the mouse to dodge fishing ships and bullets, while chasing blue dots
-				  (fish). Special ships come out at multiples of 25 points ... if you
-				  can get there! Click on the image below to play.</p>
-				<a href="http://kc34.github.io/loch-best-monster">
-					<img src="img/loch-best-monster.png">
-				</a>
-				<h2>Aquarium Simulator</h2>
-				<p>My first major project ever, Aquarium Simulator was an exploration into
-				  main loops, deterministic time-steps, and object-oriented programming.
-				  Click anywhere to drop donuts, and watch as the fish and sharks
-				  interact with it and each other. Click on the image below to play.</p>
-				<a href="http://kc34.github.io/AquariumSimulator">
-					<img src="img/aquariumsimulator.png">
-				</a>
-				<h2>Tetris Attack Clone</h2>
-				<p>A collaborative project with my younger brother, Ryan, Tetris Attack
-				  Clone is a reimagining of the classic Nintendo game series,
-					<a href="https://en.wikipedia.org/wiki/Puzzle_League_(series)">Puzzle League</a>.
-				  Tetris Attack is fiercely-beloved by a small community, and we hoped
-				  to bring attention to this relatively unknown series. Click on the
-				  image below to play.</p>
-				<a href="http://kc34.github.io/tetris-attack-clone">
-					<img src="img/tetris-attack-clone.png">
-				</a>
-				<h2>The Beer Bike Game</h2>
-				<p>In all honesty, the Beer Bike Game has no place being on a supposedly
-					"professional" website, but it comes with a funny story. While taking
-					a break during my freshman-year Rice Hackathon, I created the Beer
-					Bike Game and filled it with crass humor to vent my frustrations.
-					Because the Beer Bike Game predates my foray into GitHub hosting, the
-					link was difficult to access until I linked to it here! Not
-					recommeded for the faint of heart. To access the game from the source
-					code, you will need to click on the play button on the top right
-					corner. Click on the image below to play.</p>
-				<a href="http://www.codeskulptor.org/#user39_qe7jEAkL5o_16.py">
-					<img src="img/beer-bike-game.png">
-				</a>
+	<!-- link to main stylesheet -->
+	<link rel="stylesheet" type="text/css" href="/css/main.css">    </head>
+    <meta http-equiv="refresh" content="0; url=/#!/home" />
+    <body ng-app="websiteApp">
+		<div ng-controller="MainController">
+			<nav>
+				<ul>
+					<li><a href="#!home">Home</a></li>
+					<li><a href="#!about">About</a></li>
+					<li><a href="#!resume">Resume</a></li>
+					<li><a href="#!projects">Projects</a></li>
+				</ul>
+			</nav>
+
+            <h1>Moved!</h1>
+			This page has moved. <a href="/#!/home">Click here</a></p>
+
+			<footer>
+				<ul>
+					<li><a href="mailto:kc34@rice.edu">email</a></li>
+					<li><a href="https://github.com/kc34">github.com/kc34</a></li>
+				</ul>
+			</footer>
 			</div>
-    </div><!-- /.container -->
-		<footer>
-    	<ul>
-        <li><a href="mailto:kc34@rice.edu">email</a></li>
-        <li><a href="https://github.com/kc34">github.com/kc34</a></li>
-			</ul>
-		</footer>
 	</body>
 </html>
