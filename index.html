@@ -2,53 +2,134 @@
 <html>
 	<head>
 		<title>Title</title>
-	<!-- link to main stylesheet -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-route.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/main.css">    </head>
-	<body ng-app="websiteApp">
-		<div ng-controller="MainController">
-			<nav>
-				<ul>
-					<li><a href="#!home">Home</a></li>
-					<li><a href="#!about">About</a></li>
-					<li><a href="#!resume">Resume</a></li>
-					<li><a href="#!projects">Projects</a></li>
-				</ul>
-			</nav>
+		<!-- link to main stylesheet -->
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-route.js"></script> -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
 
-			<div ng-view class="container"></div>
-
-			<footer>
-				<ul>
-					<li><a href="mailto:kc34@rice.edu">email</a></li>
-					<li><a href="https://github.com/kc34">github.com/kc34</a></li>
-				</ul>
-			</footer>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<span class="navbar-brand">Kevin Chang</span>
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+						<li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+					</ul>
+				</div>
 			</div>
-		<script>
-			angular.module("websiteApp", ['ngRoute'])
-			.controller("MainController", function($scope, $route) {
-				$scope.$route = $route;
-			})
-			.config(function($routeProvider, $locationProvider) {
-				$routeProvider
-				.when('/home', {
-					templateUrl: 'templates/home.html'
-				})
-				.when('/about', {
-					templateUrl: 'templates/about.html'
-				})
-				.when('/resume', {
-					templateUrl: 'templates/resume.html'
-				})
-				.when('/projects', {
-					templateUrl: 'templates/projects.html'
-				})
-				.otherwise({
-					templateUrl: 'templates/home.html'
-				});
-			});
-		</script>
+		</nav>
+		<div ng-view class="container">
+			<h1>
+				<a name="about">About Me</a>
+			</h1>
+			<p>
+				<img src="img/me.jpeg" style="max-height:500px;justify-content:center">
+			</p>
+			<p>
+				Hello! My name is Kevin.
+				I'm a Software Engineer with almost 3.5 years of full-time experience in internal tool development.
+				I currently help Google maintain and improve no-code development platforms for abstract data center modeling and automated material ordering.
+				Through this pipeline, business planners improve Google Cloud by making abstract changes that are automatically translated into 10,000+ materials per year.
+			</p>
+			<p>
+				Some examples:
+				<ul>
+					<li>
+						Introduced modeling of Software Defined Networking Racks as proper entities, instead of attributes of "full" data centers, by collaborating with business planners and automated material ordering SWEs to design a solution for all. This allowed us to begin tracking these racks, configure their connections at a higher level of detail, and even allowed us to add these into "mini" data centers.
+					</li>
+					<li>
+						Designed and implemented a script to convert Google's private software-defined WAN from border router attributes into entities. The script determined where each WAN node was first referenced, inserted a new entity before this reference, and added relationships between nodes and border routers. This allowed border routers to connect to multiple WAN nodes at once.
+					</li>
+					<li>
+						Supported department horizontal to unify data center change modeling, by rebuilding the automated material ordering system's data change format to be compatible with a new entity-relationship model (from a hierarchical model), with a gradual per-plan rollout. This allows two separate data center change tools to be merged, simplifying workflows.
+					</li>
+				</ul>
+			</p>
+
+			<p>(My <a href="/resume/2022-06-30_Public_Resume.pdf" class="download" title="Download Resume as PDF">resume</a> includes many more of these examples.)</p>
+
+			<p>I get excited about opportunities where I get to design and demonstrate elegant and scalable solutions for complex problems.</p>
+
+			<p>I love connecting with new people! You can reach me at <a href="mailto:kev.chang96@gmail.com">kev.chang96@gmail.com</a>.</p>
+			</p>
+			
+			<h1><a name="projects">Fun Projects (Playable!)</a></h1>
+			<p>
+				I got my start in software design by coding up games I could share with my friends! The following games are coded in JavaScript so are loadable and playable in the browser. Just click on the screenshot to play.
+			</p>
+			<h2>Aquarium Simulator</h2>
+			<p>
+				AquaSim was my first major Project,
+				I drew a tremendous amount of inspiration from <a href="https://en.wikipedia.org/wiki/Insaniquarium">PopCap Games's Insaniquarium</a>.
+				It started with the same idea where you can left-click the screen to drop food for the fish, but I wanted to see if I could push the idea by simulating physics and by having more complicated interactions between fish (e.g. preferring to be next to fish with the same color).
+			</p>
+			<p>
+				Some fun memories:
+				<ul>
+					<li>I initially had fish accelerate at a constant rate towards food.
+						However, since the food was also falling, this ended up causing the fish to miss the food, and then they would begin orbiting the food due to the constant inward acceleration!
+						This was solved through adding water resistance to reduce the fish's perpendicular momentum.
+					</li>
+					<li>
+						At one point, I had a main-loop that would count the milliseconds since the last loop ran, would calculate position and velocity changes based on the time delta, and render the game state.
+						However, this meant that computers that rendered more quickly would have shorter times before loops, leading to a better approximation of the game state.
+						I ended up separating the physics and rendering, and having the physics loop operate on a <a href="https://gamedev.stackexchange.com/questions/1589/when-should-i-use-a-fixed-or-variable-time-step">fixed time step</a>.
+					</li>
+				</ul>
+			</p>
+			<a href="http://kc34.github.io/AquariumSimulator">
+				<img src="img/aquariumsimulator.png">
+			</a>
+			<p>Click on the image above to play.</p>
+			<h2>Loch Best Monster</h2>
+			<p>
+				Loch Best Monster was a game I wrote for a birthday!
+				It was inspired by a genre of video games where you dodge a ridiculous amount of bullets.
+				(In my opinion, it's easier than it looks.)
+			</p>
+			<p>
+				Some fun memories:
+				<ul>
+					<li>
+						I recall having just learned about Composition-over-Inheritance while creating this game,
+						so the enemies in this game have a "movement" component and a shooting component.
+						I haven't added enough enemies for this design to make a big difference, and would love to revisit this game sometime.
+					</li>
+					<li>The birthday recipient described this as a stressful experience.</li>
+				</ul>
+			</p>
+			<p>To play, use your mouse to lead the green dot around to collect the blue dots (representing fish). Avoid everything else!</p>
+			<a href="http://kc34.github.io/loch-best-monster">
+				<img src="img/loch-best-monster.png">
+			</a><p>(Click on the image above to play.)</p>
+			<h2>SpaceBox (collaboration)</h2>
+			<p>Click on the image above to play.</p>
+			<p>SpaceBox was created for a Rice Hackathon effort with my friends Haihao Liu,
+				Osmond Wen, Kevin Guo! It's an n-body gravity simulator with scoring mechanics. Start by clicking
+				anywhere and holding the mouse down to create a star. Then click,
+				hold, and drag to throw a planet into orbit! The lower the
+				eccentricity of an orbit you throw, the higher your score for that
+				planet!</p>
+			<p>
+				Some fun memories:
+				<ul>
+					<li>
+						We spent a lot of time trying to figure out how to fit so many actions on one mouse button: moon/planet/star selection, and velocity.
+						An early draft required users to fling the planets, which lead to so many new problems,
+						like accidentally releasing a stationary planet with velocity (which lead us to consider thresholds),
+						or flinging a planet with great initial velocity but slowing down before releasing the mouse button (which lead us to consider an average speed across the threshold).
+						Thankfully, the slinging version of these controls allowed us to sidestep so many of these problems.
+					</li>
+					<li>Surprisingly, the heaviest math in this project came not from the gravity simulation, but the Google Maps style of <a href="https://stackoverflow.com/questions/2916081/zoom-in-on-a-point-using-scale-and-translate">zooming</a> at a point with the scrollwheel.</li>
+				</ul>
+			</p>
+			<a href="http://kc34.github.io/SpaceBox">
+				<img src="img/spacebox.png">
+				</a>
+				<p>Click on the image above to play.</p>
+		</div>
 	</body>
 </html>

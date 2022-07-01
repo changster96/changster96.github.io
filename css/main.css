@@ -1,8 +1,10 @@
-body {
-    margin: 60px auto;
-    width: 50%;
-    background-color:#e0e0ff;
+html {
+    scroll-padding-top: 4rem;
 }
+body {
+    padding-top: 4rem;
+}
+/*
 nav ul, footer ul {
     font-family:"serif";
     padding: 0px;
@@ -31,12 +33,11 @@ h2 {
 h3 {
     font-size: 1em;
     font-family:"serif";
-}
+} */
 img {
-  max-width:100%;
-  max-height:100%;
+  max-width:50%;
 }
-p {
+/* p {
     font-size: 1.5em;
     line-height: 1.4em;
     color: #333;
@@ -53,4 +54,4 @@ ul.posts {
 
 ul.posts li {
     list-style: none;
-}
+} */
